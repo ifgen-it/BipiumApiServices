@@ -1,54 +1,37 @@
 package org.app.bipium.models.responses;
 
+import org.apache.http.client.HttpClient;
+import org.apache.http.client.methods.HttpGet;
+import org.apache.http.client.methods.HttpPost;
+import org.apache.http.impl.client.HttpClients;
+import org.app.bipium.config.HttpSessionConfig;
+
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
 import java.net.HttpURLConnection;
 import java.net.URL;
 
-public class BipiumApiResponse implements ResponseSendable{
-    @Override
-    public StringBuilder sendGet(String url) {
-
-        HttpURLConnection connection = null;
-        BufferedReader in = null;
-        StringBuilder response = null;
-
-        try {
-            URL getResponse = new URL(url);
-            connection = (HttpURLConnection) getResponse.openConnection();
-            connection.setRequestMethod("GET");
-            int responseCode = connection.getResponseCode();
-
-            if (responseCode == HttpURLConnection.HTTP_OK) {
-                in = new BufferedReader(new InputStreamReader(connection.getInputStream()));
-            }
-
-            String inputLine;
-            response = new StringBuilder();
-
-            if (in != null) {
-                while ((inputLine = in.readLine()) != null) {
-                    response.append(inputLine);
-                }
-            }
-
-            if (in != null) {
-                in.close();
-            }
-        } catch (IOException exception) {
-            exception.printStackTrace();
-        }
-        return response;
+public class BipiumApiResponse implements ResponseSendable {
+    private String session;
+    private HttpClient httpClient = HttpClients.createDefault();
+    public BipiumApiResponse(String urlPath) {
+        this.session = HttpSessionConfig.getSession(urlPath);
     }
 
+    /**
+     * Get response with session
+     */
     @Override
-    public String sendPost(String url) {
-        return "";
+    public void getRequest() {
+        HttpGet httpGet = new HttpGet();
     }
 
-    public static void main(String[] args) {
-        ResponseSendable sendable = new BipiumApiResponse();
-        String url = "";
+    /**
+     * Post response with session
+     */
+    @Override
+    public void postRequest() {
+        HttpPost httpPost = new HttpPost();
     }
 }
