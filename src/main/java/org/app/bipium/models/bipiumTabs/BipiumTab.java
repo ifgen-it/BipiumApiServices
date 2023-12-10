@@ -3,6 +3,9 @@ package org.app.bipium.models.bipiumTabs;
 import java.util.HashMap;
 import java.util.Map;
 
+/**
+ * Bipium abstract tab
+ */
 public abstract class BipiumTab {
     private Map<String, Integer> apiValues;
 
