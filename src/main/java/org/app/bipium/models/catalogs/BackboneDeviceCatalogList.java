@@ -5,13 +5,9 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
-public class BackboneDeviceCatalogList extends AbstractCatalogList implements CatalogInitialized{
-    public BackboneDeviceCatalogList(List<Catalog> catalogList) {
-        super(catalogList);
-    }
-
+public class BackboneDeviceCatalogList implements CatalogListFunctions {
     @Override
-    public void initial() {
+    public List<Catalog> initial() {
         Map<String, Integer> fieldsValues1 = new HashMap<>();
         fieldsValues1.put("филиал", 29);
         fieldsValues1.put("ТП", 11);
@@ -56,7 +52,6 @@ public class BackboneDeviceCatalogList extends AbstractCatalogList implements Ca
         catalogs.add(catalog1);
         catalogs.add(catalog2);
 
-        addCatalogs(catalogs);
-
+        return catalogs;
     }
 }

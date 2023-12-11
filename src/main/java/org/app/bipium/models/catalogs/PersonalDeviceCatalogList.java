@@ -5,13 +5,9 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
-public class PersonalDeviceCatalogList extends AbstractCatalogList implements CatalogInitialized {
-    public PersonalDeviceCatalogList(List<Catalog> catalogList) {
-        super(catalogList);
-    }
-
+public class PersonalDeviceCatalogList implements CatalogListFunctions {
     @Override
-    public void initial() {
+    public List<Catalog> initial() {
         Map<String, Integer> fieldsValues1 = new HashMap<>();
         fieldsValues1.put("филиал", 6);
         fieldsValues1.put("ТП", 10);
@@ -112,15 +108,14 @@ public class PersonalDeviceCatalogList extends AbstractCatalogList implements Ca
         fieldsValues6.put("№Sim", 54);
         Catalog catalog6 = new Catalog("НЕ ТАРИФНЫЕ ИСТОЧНИКИ", 180, fieldsValues6);
 
-        List<Catalog> catalogList = new ArrayList<>();
-        catalogList.add(catalog1);
-        catalogList.add(catalog2);
-        catalogList.add(catalog3);
-        catalogList.add(catalog4);
-        catalogList.add(catalog5);
-        catalogList.add(catalog6);
+        List<Catalog> catalogs = new ArrayList<>();
+        catalogs.add(catalog1);
+        catalogs.add(catalog2);
+        catalogs.add(catalog3);
+        catalogs.add(catalog4);
+        catalogs.add(catalog5);
+        catalogs.add(catalog6);
 
-        addCatalogs(catalogList);
-
+        return catalogs;
     }
 }

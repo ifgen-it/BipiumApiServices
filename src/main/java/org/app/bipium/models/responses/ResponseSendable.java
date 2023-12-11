@@ -1,7 +1,7 @@
 package org.app.bipium.models.responses;
 
 public interface ResponseSendable {
-    void getRequest();
+    void getRequest(String searchValue);
 
-    void postRequest();
+    void postRequest(String searchValue);
 }

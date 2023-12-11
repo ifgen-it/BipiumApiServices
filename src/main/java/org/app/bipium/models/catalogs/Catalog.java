@@ -17,4 +17,12 @@ public class Catalog {
         return id;
     }
 
+    @Override
+    public String toString() {
+        return "Catalog{" +
+                "name='" + name + '\'' +
+                ", id=" + id +
+                ", fieldsValues=" + fieldsValues +
+                '}';
+    }
 }

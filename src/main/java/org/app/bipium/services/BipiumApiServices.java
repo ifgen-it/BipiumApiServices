@@ -3,7 +3,7 @@ package org.app.bipium.services;
 import java.util.Map;
 
 public interface BipiumApiServices {
-    Map<String, String> searchPersonDeviceByNumber(String personalDeviceNumber);
+    Map<String, String> searchPersonalDeviceByNumber(String personalDeviceNumber);
 
     Map<String, String> searchPersonalDeviceByMac(String personalDeviceMacAddress);
 
