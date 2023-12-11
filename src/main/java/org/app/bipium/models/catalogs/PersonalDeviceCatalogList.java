@@ -1,5 +1,6 @@
 package org.app.bipium.models.catalogs;
 
+import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -26,6 +27,7 @@ public class PersonalDeviceCatalogList extends AbstractCatalogList implements Ca
         fieldsValues1.put("Долгота", 110);
         fieldsValues1.put("Пароль", 173);
         fieldsValues1.put("Маршрут", 108);
+        fieldsValues1.put("№Sim", 107);
 
         Catalog catalog1 = new Catalog("ПИТЕР 2022", 168, fieldsValues1);
 
@@ -42,6 +44,7 @@ public class PersonalDeviceCatalogList extends AbstractCatalogList implements Ca
         fieldsValues2.put("Mac", 33);
         fieldsValues2.put("Широта", 45);
         fieldsValues2.put("Долгота", 46);
+        fieldsValues2.put("№Sim", 43);
 
         Catalog catalog2 = new Catalog("ПИТЕР", 82, fieldsValues2);
 
@@ -58,7 +61,7 @@ public class PersonalDeviceCatalogList extends AbstractCatalogList implements Ca
         fieldsValues3.put("Mac", 55);
         fieldsValues3.put("Широта", 61);
         fieldsValues3.put("Долгота", 62);
-
+        fieldsValues3.put("№Sim", 59);
         Catalog catalog3 = new Catalog("Ленэнерго_ремонт_2021", 86, fieldsValues3);
 
         Map<String, Integer> fieldsValues4 = new HashMap<>();
@@ -74,7 +77,7 @@ public class PersonalDeviceCatalogList extends AbstractCatalogList implements Ca
         fieldsValues4.put("Mac", 100);
         fieldsValues4.put("Широта", 108);
         fieldsValues4.put("Долгота", 109);
-
+        fieldsValues4.put("№Sim", 106);
         Catalog catalog4 = new Catalog("Ленэнерго_ремонт_2022", 136, fieldsValues4);
 
         Map<String, Integer> fieldsValues5 = new HashMap<>();
@@ -90,6 +93,7 @@ public class PersonalDeviceCatalogList extends AbstractCatalogList implements Ca
         fieldsValues5.put("Mac", 97);
         fieldsValues5.put("Широта", 104);
         fieldsValues5.put("Долгота", 105);
+        fieldsValues5.put("№Sim", 102);
         Catalog catalog5 = new Catalog("ПИТЕР 2022 ЗАКРЫТО С ЛЭ", 152, fieldsValues5);
 
         Map<String, Integer> fieldsValues6 = new HashMap<>();
@@ -105,6 +109,18 @@ public class PersonalDeviceCatalogList extends AbstractCatalogList implements Ca
         fieldsValues6.put("Номер ПУ", 40);
         fieldsValues6.put("Mac", 47);
         fieldsValues6.put("Координаты", 31);
+        fieldsValues6.put("№Sim", 54);
         Catalog catalog6 = new Catalog("НЕ ТАРИФНЫЕ ИСТОЧНИКИ", 180, fieldsValues6);
+
+        List<Catalog> catalogList = new ArrayList<>();
+        catalogList.add(catalog1);
+        catalogList.add(catalog2);
+        catalogList.add(catalog3);
+        catalogList.add(catalog4);
+        catalogList.add(catalog5);
+        catalogList.add(catalog6);
+
+        addCatalogs(catalogList);
+
     }
 }

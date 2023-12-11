@@ -2,7 +2,7 @@ package org.app.bipium.models.catalogs;
 
 import java.util.List;
 
-public class AbstractCatalogList {
+public abstract class AbstractCatalogList {
     private List<Catalog> catalogList;
 
     public AbstractCatalogList(List<Catalog> catalogList) {
@@ -16,4 +16,9 @@ public class AbstractCatalogList {
     public void addCatalog(Catalog catalog) {
         catalogList.add(catalog);
     }
+
+    public void addCatalogs(List<Catalog> catalogs) {
+        catalogList.addAll(catalogs);
+    }
+
 }

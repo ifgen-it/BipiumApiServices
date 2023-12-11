@@ -16,7 +16,7 @@ public class HttpSessionConfig {
         HttpPost post = new HttpPost(urlPath);
         StringEntity params = null;
         try {
-            params = new StringEntity("email=" + Credentials.login + "&" + "password=" + Credentials.password);
+            params = new StringEntity("email=" + Credentials.LOGIN + "&" + "password=" + Credentials.PASSWORD);
         } catch (UnsupportedEncodingException e) {
             throw new RuntimeException(e);
         }
