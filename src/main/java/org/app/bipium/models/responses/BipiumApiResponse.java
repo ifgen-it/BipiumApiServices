@@ -10,8 +10,10 @@ import org.apache.http.client.methods.HttpPost;
 import org.apache.http.entity.StringEntity;
 import org.apache.http.impl.client.CloseableHttpClient;
 import org.apache.http.impl.client.HttpClientBuilder;
+import org.apache.http.impl.client.HttpClients;
 import org.apache.http.util.EntityUtils;
 import org.app.bipium.config.Credentials;
+import org.app.bipium.config.SessionConfig;
 import org.app.bipium.models.catalogs.Catalog;
 import org.app.bipium.models.catalogs.PersonalDeviceCatalogList;
 
@@ -27,45 +29,8 @@ public class BipiumApiResponse implements ResponseSendable {
 
     public BipiumApiResponse(String domain) {
         this.domain = domain;
-        this.client = HttpClientBuilder.create()
-                .setDefaultRequestConfig(RequestConfig.custom().setCookieSpec(CookieSpecs.STANDARD).build())
-                .build();
-        HttpPost httpPost = new HttpPost(domain + "/auth/login");
-        HttpResponse response = null;
-        StringEntity params = null;
-
-        try {
-            params = new StringEntity("email=" + Credentials.LOGIN + "&" + "password=" + Credentials.PASSWORD);
-            httpPost.setEntity(params);
-            httpPost.addHeader("Content-Type", "application/x-www-form-urlencoded");
-            response = client.execute(httpPost);
-        } catch (IOException e) {
-            throw new RuntimeException(e);
-        }
-
-        int statusCode = response.getStatusLine().getStatusCode();
-
-        if (statusCode == 200) {
-            System.out.println("Connection succeded");
-        } else {
-            System.out.println("Connection error" + statusCode);
-        }
-
-
-        List<Header> headerElements = Arrays.asList(response.getAllHeaders());
-
-        HeaderElement[] elements = null;
-
-        for (Header headerElement : headerElements) {
-            if (headerElement.getName().equals("Set-Cookie")) {
-                elements = headerElement.getElements();
-            }
-        }
-
-        for (HeaderElement element : elements) {
-            this.session = element.getValue();
-        }
-
+        this.session = SessionConfig.getSession(domain);
+        this.client = HttpClients.createDefault();
     }
 
     /**
@@ -75,7 +40,7 @@ public class BipiumApiResponse implements ResponseSendable {
     public void getRequest(int catalogID, String searchValue) {
         String requestUrl = domain + "/catalogs/" + catalogID + "/records?searchText=" + searchValue;
         HttpGet httpGet = new HttpGet(requestUrl);
-        httpGet.addHeader("Cookie", "session=" + session);
+        httpGet.addHeader("Cookie", "session=" + this.session);
 
         HttpResponse response = null;
         String responseBody = null;
