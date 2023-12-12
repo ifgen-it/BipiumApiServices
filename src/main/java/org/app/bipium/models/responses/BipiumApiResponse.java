@@ -38,16 +38,14 @@ public class BipiumApiResponse implements ResponseSendable {
      */
     @Override
     public void getRequest(int catalogID, String searchValue) {
-        String requestUrl = domain + "/catalogs/" + catalogID + "/records?searchText=" + searchValue;
+        String requestUrl = domain + "/api/v1/catalogs/" + catalogID + "/records?searchText=" + searchValue;
         HttpGet httpGet = new HttpGet(requestUrl);
         httpGet.addHeader("Cookie", "session=" + this.session);
 
         HttpResponse response = null;
-        String responseBody = null;
 
         try {
             response = client.execute(httpGet);
-            responseBody = EntityUtils.toString(response.getEntity());
         } catch (IOException e) {
             throw new RuntimeException(e);
         }
@@ -62,7 +60,7 @@ public class BipiumApiResponse implements ResponseSendable {
                     System.out.println("Resource not found");
                     break;
                 default:
-                    System.out.println("Unknown error");
+                    System.out.println("Unknown error" + responseStatus);
                     break;
             }
         }
