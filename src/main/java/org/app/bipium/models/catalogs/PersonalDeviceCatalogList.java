@@ -25,7 +25,7 @@ public class PersonalDeviceCatalogList implements CatalogListFunctions {
         fieldsValues1.put("Маршрут", 108);
         fieldsValues1.put("№Sim", 107);
 
-        Catalog catalog1 = new Catalog("ПИТЕР 2022", 168, fieldsValues1);
+        Catalog catalog1 = new Catalog("ПИТЕР 2022", 122, fieldsValues1);
 
         Map<String, Integer> fieldsValues2 = new HashMap<>();
         fieldsValues2.put("филиал", 3);

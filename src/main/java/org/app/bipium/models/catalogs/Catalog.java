@@ -17,6 +17,14 @@ public class Catalog {
         return id;
     }
 
+    public String getName() {
+        return name;
+    }
+
+    public Map<String, Integer> getFieldsValues() {
+        return fieldsValues;
+    }
+
     @Override
     public String toString() {
         return "Catalog{" +

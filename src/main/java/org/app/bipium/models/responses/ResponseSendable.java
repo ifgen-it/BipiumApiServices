@@ -1,7 +1,9 @@
 package org.app.bipium.models.responses;
 
-public interface ResponseSendable {
-    void getRequest(String searchValue);
+import org.app.bipium.models.catalogs.Catalog;
 
+public interface ResponseSendable {
+    void getRequest(int catalogID, String searchValue);
     void postRequest(String searchValue);
+
 }

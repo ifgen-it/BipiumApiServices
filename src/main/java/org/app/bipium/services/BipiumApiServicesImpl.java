@@ -10,10 +10,9 @@ public class BipiumApiServicesImpl implements BipiumApiServices {
 
     @Override
     public Map<String, String> searchPersonalDeviceByNumber(String personalDeviceNumber) {
-        Map<String, String> results = new HashMap<>();
+        
 
         return null;
-
     }
 
     @Override
@@ -29,5 +28,9 @@ public class BipiumApiServicesImpl implements BipiumApiServices {
     @Override
     public Map<String, String> searchBackboneDeviceByMac(String backboneDeviceMacAddresses) {
         return null;
+    }
+
+    public static void main(String[] args) {
+
     }
 }
