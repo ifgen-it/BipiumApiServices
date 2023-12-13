@@ -39,8 +39,9 @@ public class BipiumApiResponse implements ResponseSendable {
     @Override
     public void getRequest(int catalogID, String searchValue) {
         String requestUrl = domain + "/api/v1/catalogs/" + catalogID + "/records?searchText=" + searchValue;
+        System.out.println(requestUrl.strip());
         HttpGet httpGet = new HttpGet(requestUrl);
-        httpGet.addHeader("Cookie", "session=" + this.session);
+        httpGet.addHeader("Cookie", "connect.sid=" + this.session);
 
         HttpResponse response = null;
 
@@ -79,7 +80,7 @@ public class BipiumApiResponse implements ResponseSendable {
         ResponseSendable responseSendable = new BipiumApiResponse("https://avarkom12.bpium.ru");
         Catalog catalog = new PersonalDeviceCatalogList().initial().get(1);
         System.out.println(catalog.getName());
-        responseSendable.getRequest(catalog.getId(), "ЦЭ6803В1");
+        responseSendable.getRequest(catalog.getId(), "021220019094");
     }
 
 
