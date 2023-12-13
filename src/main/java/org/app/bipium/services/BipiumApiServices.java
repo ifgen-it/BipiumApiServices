@@ -1,14 +1,16 @@
 package org.app.bipium.services;
 
+import org.app.bipium.models.devices.AbstractDevice;
+
 import java.util.Map;
 
 public interface BipiumApiServices {
-    Map<String, String> searchPersonalDeviceByNumber(String personalDeviceNumber);
+    AbstractDevice searchPersonalDeviceByNumber(String personalDeviceNumber);
 
-    Map<String, String> searchPersonalDeviceByMac(String personalDeviceMacAddress);
+    AbstractDevice searchPersonalDeviceByMac(String personalDeviceMacAddress);
 
-    Map<String, String> searchBackBoneDeviceByNumber(String backboneDeviceNumber);
+    AbstractDevice searchBackBoneDeviceByNumber(String backboneDeviceNumber);
 
-    Map<String, String> searchBackboneDeviceByMac(String backboneDeviceMacAddresses);
+    AbstractDevice searchBackboneDeviceByMac(String backboneDeviceMacAddresses);
 
 }
