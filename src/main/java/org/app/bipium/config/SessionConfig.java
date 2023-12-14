@@ -35,9 +35,9 @@ public class SessionConfig {
         int statusCode = response.getStatusLine().getStatusCode();
 
         if (statusCode == 200) {
-            System.out.println("Connection succeded");
+            //System.out.println("Connection succeded");
         } else {
-            System.out.println("Connection error" + statusCode);
+            //System.out.println("Connection error" + statusCode);
         }
 
 

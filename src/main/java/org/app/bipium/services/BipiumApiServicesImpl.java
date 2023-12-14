@@ -36,14 +36,12 @@ public class BipiumApiServicesImpl implements BipiumApiServices, Serializable {
 
         List<Catalog> catalogs = this.catalogListInterface.initial();
 
-
-        Catalog resultCatalog = null;
         for (Catalog catalog : catalogs) {
             ResponseSendable responseSendable = new BipiumApiResponse(Credentials.DOMAIN);
 
-            Map<String, String> result = responseSendable.getRequest(catalog.getId(), deviceNumber);
+            Map<String, String> catalogValues = responseSendable.getRequest(catalog.getId(), deviceNumber);
 
-            System.out.println(result);
+
         }
 
         return null;

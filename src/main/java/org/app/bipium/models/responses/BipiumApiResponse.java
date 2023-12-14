@@ -32,7 +32,11 @@ public class BipiumApiResponse implements ResponseSendable {
     public BipiumApiResponse(String domain) {
         this.domain = domain;
         this.session = SessionConfig.getSession(domain);
-        this.client = HttpClients.createDefault();
+        this.client = HttpClients.custom()
+                        .setDefaultRequestConfig(RequestConfig.custom()
+                        .setCookieSpec(CookieSpecs.STANDARD)
+                        .build())
+                        .build();
     }
 
     /**
@@ -41,7 +45,6 @@ public class BipiumApiResponse implements ResponseSendable {
     @Override
     public Map<String, String> getRequest(int catalogID, String searchValue) {
         String requestUrl = domain + "/api/v1/catalogs/" + catalogID + "/records?searchText=" + searchValue;
-        System.out.println(requestUrl.strip());
         HttpGet httpGet = new HttpGet(requestUrl);
         httpGet.addHeader("Cookie", "connect.sid=" + this.session);
 
@@ -56,7 +59,7 @@ public class BipiumApiResponse implements ResponseSendable {
         int responseStatus = response.getStatusLine().getStatusCode();
 
         if (responseStatus == 200) {
-            System.out.println("Completed request");
+
         } else {
             switch (responseStatus) {
                 case 404:
@@ -66,6 +69,7 @@ public class BipiumApiResponse implements ResponseSendable {
                     System.out.println("Unknown error" + responseStatus);
                     break;
             }
+            System.exit(-10);
         }
         String responseBody = null;
 
