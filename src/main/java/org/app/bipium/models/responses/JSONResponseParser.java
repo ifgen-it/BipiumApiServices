@@ -17,10 +17,6 @@ public class JSONResponseParser {
         Map<String, String> values = null;
         try {
             JsonObject myObject = objectMapper.readValue(jsonStr, JsonObject.class);
-            System.out.println("id: " + myObject.getId());
-            System.out.println("catalogId: " + myObject.getCatalogId());
-            System.out.println("title: " + myObject.getTitle());
-
             values = myObject.getValues();
 
         } catch (IOException exception) {

@@ -7,10 +7,13 @@ import org.app.bipium.models.catalogs.Catalog;
 import org.app.bipium.models.catalogs.CatalogListInterface;
 import org.app.bipium.models.catalogs.PersonalDeviceCatalogList;
 import org.app.bipium.models.devices.AbstractDevice;
+import org.app.bipium.models.devices.BackboneDevice;
+import org.app.bipium.models.devices.PersonalDevice;
 import org.app.bipium.models.responses.BipiumApiResponse;
 import org.app.bipium.models.responses.ResponseSendable;
 
 import java.io.Serializable;
+import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -32,45 +35,39 @@ public class BipiumApiServicesImpl implements BipiumApiServices, Serializable {
     }
 
     @Override
-    public AbstractDevice searchDeviceByNumber(String deviceNumber) {
+    public AbstractDevice searchDeviceByNumber(String searchValue) {
 
         List<Catalog> catalogs = this.catalogListInterface.initial();
-        Catalog catalogResult = null;
+
+        Map<String, String> requestHashmap = null;
+        Map<String, String> catalogValues = null;
 
         for (Catalog catalog : catalogs) {
             ResponseSendable responseSendable = new BipiumApiResponse(Credentials.DOMAIN);
 
-            Map<String, String> catalogValues = responseSendable.getRequest(catalog.getId(), deviceNumber);
-
-            if (catalogValues != null) {
-                if (findTargetRecord(catalogValues, deviceNumber)) {
-                    catalogResult = catalog;
-                }
+            if (responseSendable.getRequest(catalog.getId(), searchValue) != null) {
+                requestHashmap = responseSendable.getRequest(catalog.getId(), searchValue);
+                System.out.println(catalog.getName());
+                catalogValues = catalog.getFieldsValues();
             }
         }
-        System.out.println(catalogResult);
+
+        System.out.println(catalogValues);
+        System.out.println(requestHashmap);
 
         return null;
     }
 
-    private boolean findTargetRecord(Map<String, String> catalogValues, String number) {
-        for (String value : catalogValues.values()) {
-            if (value != null) {
-                if (value.equals(number)) {
-                    return true;
-                }
-            }
-        }
-        return false;
-    }
 
     @Override
     public AbstractDevice searchDeviceByMac(String mac) {
         return null;
     }
 
+
     public static void main(String[] args) {
         BipiumApiServices services = new BipiumApiServicesImpl("пу");
-        services.searchDeviceByNumber("78323");
+        AbstractDevice device = services.searchDeviceByNumber("023230079086");
+        System.out.println(device);
     }
 }

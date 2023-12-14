@@ -12,4 +12,11 @@ public abstract class AbstractDevice {
     public Map<String, String> getValues() {
         return values;
     }
+
+    @Override
+    public String toString() {
+        return "AbstractDevice{" +
+                "values=" + values +
+                '}';
+    }
 }

@@ -11,27 +11,27 @@ public class PersonalDeviceCatalogList implements CatalogListInterface {
 
     public List<Catalog> initial() {
         Map<String, String> fieldsValues1 = new HashMap<>();
-        fieldsValues1.put("филиал", "6");
-        fieldsValues1.put("ТП", "10");
-        fieldsValues1.put("Линия/Фидер", "11");
-        fieldsValues1.put("Населенный пункт", "21");
-        fieldsValues1.put("Полный Адрес", "23");
-        fieldsValues1.put("Имя потребителя", "28");
-        fieldsValues1.put("Контактные данные", "31");
-        fieldsValues1.put("Марка пу", "92");
-        fieldsValues1.put("Номер ПУ", "93");
-        fieldsValues1.put("Mac", "102");
-        fieldsValues1.put("Широта", "109");
-        fieldsValues1.put("Долгота", "110");
-        fieldsValues1.put("Пароль", "173");
-        fieldsValues1.put("Маршрут", "108");
-        fieldsValues1.put("№Sim", "107");
+        fieldsValues1.put("6", "филиал");
+        fieldsValues1.put("10", "ТП");
+        fieldsValues1.put("11", "Линия/Фидер");
+        fieldsValues1.put("21", "Населенный пункт");
+        fieldsValues1.put("23", "Полный Адрес");
+        fieldsValues1.put("28", "Имя потребителя");
+        fieldsValues1.put("31", "Контактные данные");
+        fieldsValues1.put("92", "Марка пу");
+        fieldsValues1.put("93", "Номер ПУ");
+        fieldsValues1.put("102", "Mac");
+        fieldsValues1.put("109", "Широта");
+        fieldsValues1.put("110", "Долгота");
+        fieldsValues1.put("173", "Пароль");
+        fieldsValues1.put("108", "Маршрут");
+        fieldsValues1.put("107", "№Sim");
 
         Catalog catalog1 = new Catalog("ПИТЕР 2022", 122, fieldsValues1);
 
         Map<String, String> fieldsValues2 = new HashMap<>();
-        fieldsValues2.put("филиал", "3");
-        fieldsValues2.put("ТП", "132");
+        fieldsValues2.put("3", "филиал");
+        fieldsValues2.put("132", "ТП");
         fieldsValues2.put("Линия/Фидер", "133");
         fieldsValues2.put("Населенный пункт", "8");
         fieldsValues2.put("Полный Адрес", "10");
