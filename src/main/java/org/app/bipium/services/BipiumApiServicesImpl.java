@@ -13,10 +13,7 @@ import org.app.bipium.models.responses.BipiumApiResponse;
 import org.app.bipium.models.responses.ResponseSendable;
 
 import java.io.Serializable;
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
+import java.util.*;
 
 /**
  * Bipium Services Interface
@@ -36,11 +33,10 @@ public class BipiumApiServicesImpl implements BipiumApiServices, Serializable {
 
     @Override
     public AbstractDevice searchDeviceByNumber(String searchValue) {
-
         List<Catalog> catalogs = this.catalogListInterface.initial();
 
         Map<String, String> requestHashmap = null;
-        Map<String, String> catalogValues = null;
+        Map<String, String> catalogHashMap = null;
 
         for (Catalog catalog : catalogs) {
             ResponseSendable responseSendable = new BipiumApiResponse(Credentials.DOMAIN);
@@ -48,19 +44,27 @@ public class BipiumApiServicesImpl implements BipiumApiServices, Serializable {
             if (responseSendable.getRequest(catalog.getId(), searchValue) != null) {
                 requestHashmap = responseSendable.getRequest(catalog.getId(), searchValue);
                 System.out.println(catalog.getName());
-                catalogValues = catalog.getFieldsValues();
+                catalogHashMap = catalog.getFieldsValues();
             }
         }
 
-        System.out.println(catalogValues);
+        System.out.println(catalogHashMap);
         System.out.println(requestHashmap);
+        assert catalogHashMap != null;
 
+        Map<String, String> result = requestDataMapSynchronization(catalogHashMap, requestHashmap);
         return null;
     }
 
 
     @Override
     public AbstractDevice searchDeviceByMac(String mac) {
+        return null;
+    }
+
+    private Map<String, String> requestDataMapSynchronization(Map<String, String> sourceMap, Map<String, String> destinationMap) {
+        Set<String> keySet = sourceMap.keySet();
+
         return null;
     }
 
