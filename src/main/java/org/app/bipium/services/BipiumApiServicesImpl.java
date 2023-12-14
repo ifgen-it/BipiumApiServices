@@ -55,8 +55,10 @@ public class BipiumApiServicesImpl implements BipiumApiServices, Serializable {
 
     private boolean findTargetRecord(Map<String, String> catalogValues, String number) {
         for (String value : catalogValues.values()) {
-            if (value.equals(number)) {
-                return true;
+            if (value != null) {
+                if (value.equals(number)) {
+                    return true;
+                }
             }
         }
         return false;
