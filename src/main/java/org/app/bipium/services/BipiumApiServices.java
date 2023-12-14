@@ -5,12 +5,7 @@ import org.app.bipium.models.devices.AbstractDevice;
 import java.util.Map;
 
 public interface BipiumApiServices {
-    AbstractDevice searchPersonalDeviceByNumber(String personalDeviceNumber);
+    AbstractDevice searchDeviceByNumber(String number);
 
-    AbstractDevice searchPersonalDeviceByMac(String personalDeviceMacAddress);
-
-    AbstractDevice searchBackBoneDeviceByNumber(String backboneDeviceNumber);
-
-    AbstractDevice searchBackboneDeviceByMac(String backboneDeviceMacAddresses);
-
+    AbstractDevice searchDeviceByMac(String mac);
 }

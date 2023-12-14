@@ -5,9 +5,9 @@ import java.util.Map;
 public class Catalog {
     private String name;
     private int id;
-    private Map<String, Integer> fieldsValues;
+    private Map<String, String> fieldsValues;
 
-    public Catalog(String name, int id, Map<String, Integer> fieldsValues) {
+    public Catalog(String name, int id, Map<String, String> fieldsValues) {
         this.name = name;
         this.id = id;
         this.fieldsValues = fieldsValues;
@@ -21,7 +21,7 @@ public class Catalog {
         return name;
     }
 
-    public Map<String, Integer> getFieldsValues() {
+    public Map<String, String> getFieldsValues() {
         return fieldsValues;
     }
 

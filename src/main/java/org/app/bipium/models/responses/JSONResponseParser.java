@@ -11,8 +11,6 @@ import com.fasterxml.jackson.databind.ObjectMapper;
  * Json parser from string
  */
 public class JSONResponseParser {
-
-
     public static Map<String, String> parse(String jsonStr) {
         ObjectMapper objectMapper = new ObjectMapper();
 

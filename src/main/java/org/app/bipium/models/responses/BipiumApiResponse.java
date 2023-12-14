@@ -91,15 +91,4 @@ public class BipiumApiResponse implements ResponseSendable {
     public void postRequest(String searchValue) {
 
     }
-
-    public static void main(String[] args) {
-        //603120955
-        ResponseSendable responseSendable = new BipiumApiResponse("https://avarkom12.bpium.ru");
-        Catalog catalog = new PersonalDeviceCatalogList().initial().get(1);
-        System.out.println(catalog.getName());
-        Map<String, String> values = responseSendable.getRequest(catalog.getId(), "021220019094");
-        System.out.println(values);
-    }
-
-
 }
