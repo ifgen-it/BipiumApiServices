@@ -2,8 +2,10 @@ package org.app.bipium.models.responses;
 
 import org.app.bipium.models.catalogs.Catalog;
 
+import java.util.Map;
+
 public interface ResponseSendable {
-    String getRequest(int catalogID, String searchValue);
+    Map<String, String> getRequest(int catalogID, String searchValue);
     void postRequest(String searchValue);
 
 }
