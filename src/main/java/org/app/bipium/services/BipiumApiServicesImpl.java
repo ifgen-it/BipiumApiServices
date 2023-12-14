@@ -35,16 +35,31 @@ public class BipiumApiServicesImpl implements BipiumApiServices, Serializable {
     public AbstractDevice searchDeviceByNumber(String deviceNumber) {
 
         List<Catalog> catalogs = this.catalogListInterface.initial();
+        Catalog catalogResult = null;
 
         for (Catalog catalog : catalogs) {
             ResponseSendable responseSendable = new BipiumApiResponse(Credentials.DOMAIN);
 
             Map<String, String> catalogValues = responseSendable.getRequest(catalog.getId(), deviceNumber);
 
-
+            if (catalogValues != null) {
+                if (findTargetRecord(catalogValues, deviceNumber)) {
+                    catalogResult = catalog;
+                }
+            }
         }
+        System.out.println(catalogResult);
 
         return null;
+    }
+
+    private boolean findTargetRecord(Map<String, String> catalogValues, String number) {
+        for (String value : catalogValues.values()) {
+            if (value.equals(number)) {
+                return true;
+            }
+        }
+        return false;
     }
 
     @Override
