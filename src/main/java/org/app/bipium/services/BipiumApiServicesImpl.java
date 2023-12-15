@@ -33,45 +33,79 @@ public class BipiumApiServicesImpl implements BipiumApiServices, Serializable {
 
     @Override
     public AbstractDevice searchDeviceByNumber(String searchValue) {
-        List<Catalog> catalogs = this.catalogListInterface.initial();
+        List<Catalog> catalogs = catalogListInterface.initial();
 
         Map<String, String> requestHashmap = null;
-        Map<String, String> catalogHashMap = null;
+        Map<String, String> resultCatalogHashMap = null;
 
         for (Catalog catalog : catalogs) {
             ResponseSendable responseSendable = new BipiumApiResponse(Credentials.DOMAIN);
 
             if (responseSendable.getRequest(catalog.getId(), searchValue) != null) {
                 requestHashmap = responseSendable.getRequest(catalog.getId(), searchValue);
-                System.out.println(catalog.getName());
-                catalogHashMap = catalog.getFieldsValues();
+                resultCatalogHashMap = catalog.getFieldsValues();
             }
         }
 
-        System.out.println(catalogHashMap);
-        System.out.println(requestHashmap);
-        assert catalogHashMap != null;
+        AbstractDevice resultDevice = null;
 
-        Map<String, String> result = requestDataMapSynchronization(catalogHashMap, requestHashmap);
-        return null;
+        if (catalogListInterface instanceof PersonalDeviceCatalogList) {
+            resultDevice = new PersonalDevice();
+        } else if (catalogListInterface instanceof BackboneDeviceCatalogList) {
+            resultDevice = new BackboneDevice();
+        }
+
+        if (resultDevice != null) {
+            if (resultCatalogHashMap != null) {
+                resultDevice.setValues(resultCatalogHashMap, requestHashmap);
+            } else {
+                System.out.println("Data not found");
+                System.exit(-10);
+            }
+
+        }
+        return resultDevice;
     }
 
 
     @Override
-    public AbstractDevice searchDeviceByMac(String mac) {
-        return null;
+    public AbstractDevice searchDeviceByMac(String macAddress) {
+        List<Catalog> catalogs = catalogListInterface.initial();
+
+        Map<String, String> requestHashmap = null;
+        Map<String, String> resultCatalogHashMap = null;
+
+        for (Catalog catalog : catalogs) {
+            ResponseSendable responseSendable = new BipiumApiResponse(Credentials.DOMAIN);
+
+            if (responseSendable.getRequest(catalog.getId(), macAddress) != null) {
+                requestHashmap = responseSendable.getRequest(catalog.getId(), macAddress);
+                resultCatalogHashMap = catalog.getFieldsValues();
+            }
+        }
+
+        AbstractDevice resultDevice = null;
+
+        if (catalogListInterface instanceof PersonalDeviceCatalogList) {
+            resultDevice = new PersonalDevice();
+        } else if (catalogListInterface instanceof BackboneDeviceCatalogList) {
+            resultDevice = new BackboneDevice();
+        }
+
+        if (resultDevice != null) {
+            if (resultCatalogHashMap != null) {
+                resultDevice.setValues(resultCatalogHashMap, requestHashmap);
+            } else {
+                System.out.println("Data not found");
+                System.exit(-10);
+            }
+
+        }
+
+
+        return resultDevice;
     }
 
-    private Map<String, String> requestDataMapSynchronization(Map<String, String> sourceMap, Map<String, String> destinationMap) {
-        Set<String> keySet = sourceMap.keySet();
-
-        return null;
-    }
 
 
-    public static void main(String[] args) {
-        BipiumApiServices services = new BipiumApiServicesImpl("пу");
-        AbstractDevice device = services.searchDeviceByNumber("023230079086");
-        System.out.println(device);
-    }
 }

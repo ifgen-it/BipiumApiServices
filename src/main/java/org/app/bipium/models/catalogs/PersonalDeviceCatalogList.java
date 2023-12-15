@@ -2,15 +2,12 @@ package org.app.bipium.models.catalogs;
 
 import org.app.bipium.models.devices.AbstractDevice;
 
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
+import java.util.*;
 
 public class PersonalDeviceCatalogList implements CatalogListInterface {
 
     public List<Catalog> initial() {
-        Map<String, String> fieldsValues1 = new HashMap<>();
+        Map<String, String> fieldsValues1 = new LinkedHashMap<>();
         fieldsValues1.put("6", "филиал");
         fieldsValues1.put("10", "ТП");
         fieldsValues1.put("11", "Линия/Фидер");
@@ -29,7 +26,7 @@ public class PersonalDeviceCatalogList implements CatalogListInterface {
 
         Catalog catalog1 = new Catalog("ПИТЕР 2022", 122, fieldsValues1);
 
-        Map<String, String> fieldsValues2 = new HashMap<>();
+        Map<String, String> fieldsValues2 = new LinkedHashMap<>();
         fieldsValues2.put("3", "филиал");
         fieldsValues2.put("132", "ТП");
         fieldsValues2.put("133", "Линия/Фидер");
@@ -46,7 +43,7 @@ public class PersonalDeviceCatalogList implements CatalogListInterface {
 
         Catalog catalog2 = new Catalog("ПИТЕР", 82, fieldsValues2);
 
-        Map<String, String> fieldsValues3 = new HashMap<>();
+        Map<String, String> fieldsValues3 = new LinkedHashMap<>();
         fieldsValues3.put("5", "филиал");
         fieldsValues3.put("9", "ТП");
         fieldsValues3.put("10", "Линия/Фидер");
@@ -62,7 +59,7 @@ public class PersonalDeviceCatalogList implements CatalogListInterface {
         fieldsValues3.put("59", "№Sim");
         Catalog catalog3 = new Catalog("Ленэнерго_ремонт_2021", 86, fieldsValues3);
 
-        Map<String, String> fieldsValues4 = new HashMap<>();
+        Map<String, String> fieldsValues4 = new LinkedHashMap<>();
         fieldsValues4.put("6", "филиал");
         fieldsValues4.put("10", "ТП");
         fieldsValues4.put("11", "Линия/Фидер");
@@ -78,7 +75,7 @@ public class PersonalDeviceCatalogList implements CatalogListInterface {
         fieldsValues4.put("106", "№Sim");
         Catalog catalog4 = new Catalog("Ленэнерго_ремонт_2022", 136, fieldsValues4);
 
-        Map<String, String> fieldsValues5 = new HashMap<>();
+        Map<String, String> fieldsValues5 = new LinkedHashMap<>();
         fieldsValues5.put("6", "филиал");
         fieldsValues5.put("10", "ТП");
         fieldsValues5.put("11", "Линия/Фидер");
@@ -94,7 +91,7 @@ public class PersonalDeviceCatalogList implements CatalogListInterface {
         fieldsValues5.put("102", "№Sim");
         Catalog catalog5 = new Catalog("ПИТЕР 2022 ЗАКРЫТО С ЛЭ", 152, fieldsValues5);
 
-        Map<String, String> fieldsValues6 = new HashMap<>();
+        Map<String, String> fieldsValues6 = new LinkedHashMap<>();
         fieldsValues6.put("4", "филиал");
         fieldsValues6.put("9", "ТП");
         fieldsValues6.put("8", "Линия/Фидер");

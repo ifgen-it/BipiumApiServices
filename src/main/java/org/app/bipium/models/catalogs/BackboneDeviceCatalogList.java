@@ -2,17 +2,14 @@ package org.app.bipium.models.catalogs;
 
 import org.app.bipium.models.devices.AbstractDevice;
 
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
+import java.util.*;
 
 public class BackboneDeviceCatalogList implements CatalogListInterface {
 
     public List<Catalog> initial() {
         BackboneDeviceCatalogList backboneDeviceCatalogList = new BackboneDeviceCatalogList();
 
-        Map<String, String> fieldsValues1 = new HashMap<>();
+        Map<String, String> fieldsValues1 = new LinkedHashMap<>();
         fieldsValues1.put("29", "филиал");
         fieldsValues1.put("11", "ТП");
         fieldsValues1.put("9", "Опора");
@@ -32,7 +29,7 @@ public class BackboneDeviceCatalogList implements CatalogListInterface {
 
         Catalog catalog1 = new Catalog("Опорная сеть СПБ", 121, fieldsValues1);
 
-        Map<String, String> fieldsValues2 = new HashMap<>();
+        Map<String, String> fieldsValues2 = new LinkedHashMap<>();
         fieldsValues2.put( "29", "филиал");
         fieldsValues2.put("13", "ТП");
         fieldsValues2.put("11", "Опора");
