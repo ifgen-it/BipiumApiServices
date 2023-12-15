@@ -34,8 +34,14 @@ public abstract class AbstractDevice {
 
     @Override
     public String toString() {
-        return "AbstractDevice{" +
-                "values=" + values +
-                '}';
+        StringBuilder builder = new StringBuilder();
+        List<String> keys = new ArrayList<String>(this.values.keySet());
+        for(int i = 0; i < keys.size(); i++) {
+            String key = keys.get(i);
+            String value = this.values.get(key);
+
+            builder.append(key).append(": ").append(value).append("\n");
+        }
+        return builder.toString();
     }
 }
