@@ -16,6 +16,10 @@ public class BipiumApiServicesBuilder {
         } else if (number.matches("^[0-9A-Fa-f]{16}$")) {
             device = bipiumApiServices.searchDeviceByMac(number);
         }
+
+        if (device == null) {
+            return null;
+        }
         return device;
     }
 }

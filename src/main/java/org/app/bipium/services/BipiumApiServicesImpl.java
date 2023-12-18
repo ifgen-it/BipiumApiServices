@@ -1,6 +1,5 @@
 package org.app.bipium.services;
 
-import com.fasterxml.jackson.databind.exc.MismatchedInputException;
 import org.app.bipium.config.Credentials;
 import org.app.bipium.models.catalogs.BackboneDeviceCatalogList;
 import org.app.bipium.models.catalogs.Catalog;
