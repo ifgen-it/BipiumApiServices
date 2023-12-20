@@ -6,9 +6,9 @@ import java.util.*;
 
 public class BackboneDeviceCatalogList implements CatalogListInterface {
 
-    public List<Catalog> initial() {
-        BackboneDeviceCatalogList backboneDeviceCatalogList = new BackboneDeviceCatalogList();
 
+    public List<Catalog> initial() {
+        //BackboneDeviceCatalogList backboneDeviceCatalogList = new BackboneDeviceCatalogList();
         Map<String, String> fieldsValues1 = new LinkedHashMap<>();
         fieldsValues1.put("29", "филиал");
         fieldsValues1.put("11", "ТП");

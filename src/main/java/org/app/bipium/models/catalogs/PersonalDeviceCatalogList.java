@@ -5,7 +5,6 @@ import org.app.bipium.models.devices.AbstractDevice;
 import java.util.*;
 
 public class PersonalDeviceCatalogList implements CatalogListInterface {
-
     public List<Catalog> initial() {
         Map<String, String> fieldsValues1 = new LinkedHashMap<>();
         fieldsValues1.put("6", "филиал");
@@ -35,7 +34,7 @@ public class PersonalDeviceCatalogList implements CatalogListInterface {
         fieldsValues2.put("13", "Имя потребителя");
         fieldsValues2.put("14", "Контактные данные");
         fieldsValues2.put("117", "Марка пу");
-        fieldsValues2.put("26", "Номер ПУ");
+        fieldsValues2.put("32", "Номер ПУ");
         fieldsValues2.put("33", "Mac");
         fieldsValues2.put("45", "Широта");
         fieldsValues2.put("46", "Долгота");

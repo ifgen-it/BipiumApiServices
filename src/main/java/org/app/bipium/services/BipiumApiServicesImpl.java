@@ -61,7 +61,6 @@ public class BipiumApiServicesImpl implements BipiumApiServices, Serializable {
                 System.out.println("Data not found");
                 System.exit(-10);
             }
-
         }
         return resultDevice;
     }
@@ -100,11 +99,6 @@ public class BipiumApiServicesImpl implements BipiumApiServices, Serializable {
             }
 
         }
-
-
         return resultDevice;
     }
-
-
-
 }
