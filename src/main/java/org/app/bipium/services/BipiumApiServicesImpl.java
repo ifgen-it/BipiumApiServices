@@ -58,8 +58,7 @@ public class BipiumApiServicesImpl implements BipiumApiServices, Serializable {
             if (resultCatalogHashMap != null) {
                 resultDevice.setValues(resultCatalogHashMap, requestHashmap);
             } else {
-                System.out.println("Data not found");
-                System.exit(-10);
+                System.out.println("Данные не найдены");
             }
         }
         return resultDevice;
@@ -93,11 +92,7 @@ public class BipiumApiServicesImpl implements BipiumApiServices, Serializable {
         if (resultDevice != null) {
             if (resultCatalogHashMap != null) {
                 resultDevice.setValues(resultCatalogHashMap, requestHashmap);
-            } else {
-                System.out.println("Data not found");
-                System.exit(-10);
             }
-
         }
         return resultDevice;
     }

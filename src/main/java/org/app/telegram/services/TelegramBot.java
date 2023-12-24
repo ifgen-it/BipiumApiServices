@@ -36,9 +36,9 @@ public class TelegramBot extends TelegramLongPollingBot {
     }
 
     private void startCommandReceived(long chatId, String name) {
-        String startAnswer = "Бот для поиска информации об устройстве ЛенЭнерго\n" +
+        String startAnswer = "Проект ЛенЭнерго, поиск информации об устройстве\n" +
                 "Для получения информации об устройстве введите номер устройства в формате\n" +
-                "успд/<номер успд> для успд и пу/<номер пу> для счётчика";
+                "успд/<номер_успд> для успд или пу/<номер_пу> для счётчика";
         sendMessage(chatId, startAnswer);
     }
 
