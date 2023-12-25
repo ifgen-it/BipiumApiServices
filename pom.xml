@@ -51,6 +51,15 @@
             <version>6.8.0</version>
         </dependency>
 
+        <!-- https://mvnrepository.com/artifact/org.slf4j/slf4j-simple -->
+        <!-- https://mvnrepository.com/artifact/org.slf4j/slf4j-simple -->
+        <dependency>
+            <groupId>org.slf4j</groupId>
+            <artifactId>slf4j-simple</artifactId>
+            <version>1.7.0</version>
+            <scope>test</scope>
+        </dependency>
+
 
         <!-- SpringBoot starterTest library -->
         <dependency>
