@@ -33,8 +33,8 @@ public class TelegramBot extends TelegramLongPollingBot {
             String messageText = update.getMessage().getText().toLowerCase().strip();
             long chatId = update.getMessage().getChatId();
 
-            Pattern macPattern = Pattern.compile("пу/[0-9A-Fa-f]{16}");
-            Pattern numberPattern = Pattern.compile("успд/[0-9A-Fa-f]{16}");
+            Pattern macPattern = Pattern.compile("пу-[0-9A-Fa-f]{16}");
+            Pattern numberPattern = Pattern.compile("успд-[0-9A-Fa-f]{16}");
 
             boolean macAddressMatch = macPattern.matcher(messageText).matches();
             boolean numberMatch = numberPattern.matcher(messageText).matches();
@@ -44,8 +44,8 @@ public class TelegramBot extends TelegramLongPollingBot {
                     startCommandReceived(chatId, update.getMessage().getChat().getFirstName());
                     break;
                 default:
-                    if (messageText.contains("/")) {
-                        String[] deviceValues = messageText.split("/");
+                    if (messageText.contains("-")) {
+                        String[] deviceValues = messageText.split("-");
                         String deviceType = deviceValues[0];
                         String numberValue = deviceValues[1];
 
@@ -96,7 +96,7 @@ public class TelegramBot extends TelegramLongPollingBot {
     private void startCommandReceived(long chatId, String name) {
         String startAnswer = "Проект ЛенЭнерго, поиск информации об устройстве\n" +
                 "   Для получения информации об устройстве введите номер устройства в формате\n" +
-                "успд/<номер_успд> для успд или пу/<номер_пу> для счётчика\n" +
+                "успд-<номер_успд> для успд или пу-<номер_пу> для счётчика\n" +
                 "";
         sendMessage(chatId, startAnswer);
     }

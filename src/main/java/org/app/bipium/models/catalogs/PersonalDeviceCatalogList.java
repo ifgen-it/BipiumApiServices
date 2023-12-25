@@ -10,6 +10,7 @@ public class PersonalDeviceCatalogList implements CatalogListInterface {
         fieldsValues1.put("6", "филиал");
         fieldsValues1.put("10", "ТП");
         fieldsValues1.put("11", "Линия/Фидер");
+        fieldsValues1.put("35", "Комментарий");
         fieldsValues1.put("21", "Населенный пункт");
         fieldsValues1.put("23", "Полный Адрес");
         fieldsValues1.put("28", "Имя потребителя");
@@ -29,6 +30,7 @@ public class PersonalDeviceCatalogList implements CatalogListInterface {
         fieldsValues2.put("3", "филиал");
         fieldsValues2.put("132", "ТП");
         fieldsValues2.put("133", "Линия/Фидер");
+        fieldsValues2.put("22", "Комментарий");
         fieldsValues2.put("8", "Населенный пункт");
         fieldsValues2.put("10", "Полный Адрес");
         fieldsValues2.put("13", "Имя потребителя");
@@ -46,6 +48,7 @@ public class PersonalDeviceCatalogList implements CatalogListInterface {
         fieldsValues3.put("5", "филиал");
         fieldsValues3.put("9", "ТП");
         fieldsValues3.put("10", "Линия/Фидер");
+        fieldsValues3.put("33", "Комментарий");
         fieldsValues3.put("20", "Населенный пункт");
         fieldsValues3.put("22", "Полный Адрес");
         fieldsValues3.put("27", "Имя потребителя");
@@ -62,6 +65,7 @@ public class PersonalDeviceCatalogList implements CatalogListInterface {
         fieldsValues4.put("6", "филиал");
         fieldsValues4.put("10", "ТП");
         fieldsValues4.put("11", "Линия/Фидер");
+        fieldsValues4.put("34", "Комментарий");
         fieldsValues4.put("21", "Населенный пункт");
         fieldsValues4.put("23", "Полный Адрес");
         fieldsValues4.put("28", "Имя потребителя");
@@ -78,6 +82,7 @@ public class PersonalDeviceCatalogList implements CatalogListInterface {
         fieldsValues5.put("6", "филиал");
         fieldsValues5.put("10", "ТП");
         fieldsValues5.put("11", "Линия/Фидер");
+        fieldsValues4.put("34", "Комментарий");
         fieldsValues5.put("21", "Населенный пункт");
         fieldsValues5.put("22", "Полный Адрес");
         fieldsValues5.put("28", "Имя потребителя");
@@ -94,6 +99,7 @@ public class PersonalDeviceCatalogList implements CatalogListInterface {
         fieldsValues6.put("4", "филиал");
         fieldsValues6.put("9", "ТП");
         fieldsValues6.put("8", "Линия/Фидер");
+        fieldsValues4.put("30", "Комментарий");
         fieldsValues6.put("25", "Населенный пункт");
         fieldsValues6.put("26", "УЛИЦА");
         fieldsValues6.put("27", "№дома");

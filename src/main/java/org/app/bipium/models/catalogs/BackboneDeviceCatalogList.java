@@ -14,12 +14,12 @@ public class BackboneDeviceCatalogList implements CatalogListInterface {
         fieldsValues1.put("11", "ТП");
         fieldsValues1.put("9", "Опора");
         fieldsValues1.put("10", "Линия/Фидер");
+        fieldsValues1.put("19", "Примечание");
         fieldsValues1.put("2", "Полный Адрес");
         fieldsValues1.put("3", "Номер УСПД");
         fieldsValues1.put("7", "Mac");
         fieldsValues1.put("26", "IMEI");
         fieldsValues1.put("8", "Место установки");
-        fieldsValues1.put("19", "Примечание");
         fieldsValues1.put("22", "№канала");
         fieldsValues1.put("23", "PanID");
         fieldsValues1.put("12", "Широта");
@@ -34,12 +34,12 @@ public class BackboneDeviceCatalogList implements CatalogListInterface {
         fieldsValues2.put("13", "ТП");
         fieldsValues2.put("11", "Опора");
         fieldsValues2.put("12", "Линия/Фидер");
+        fieldsValues2.put("21", "Примечание");
         fieldsValues2.put("4", "Полный Адрес");
         fieldsValues2.put("5", "Номер УСПД");
         fieldsValues2.put("9", "Mac");
         fieldsValues2.put("22", "IMEI");
-        fieldsValues2.put("10", "Место установки");
-        fieldsValues2.put("21", "Примечание");
+        fieldsValues2.put("10", "Место установки");;
         fieldsValues2.put("23", "№канала");
         fieldsValues2.put("24", "PanID");
         fieldsValues2.put("14", "Широта");
