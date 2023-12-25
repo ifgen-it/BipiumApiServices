@@ -34,16 +34,32 @@ public class TelegramBot extends TelegramLongPollingBot {
             long chatId = update.getMessage().getChatId();
 
             Pattern macPattern = Pattern.compile("пу/[0-9A-Fa-f]{16}");
-            boolean macAddressMatch = macPattern.matcher(messageText).matches();
+            Pattern numberPattern = Pattern.compile("успд/[0-9A-Fa-f]{16}");
 
+            boolean macAddressMatch = macPattern.matcher(messageText).matches();
+            boolean numberMatch = numberPattern.matcher(messageText).matches();
 
             switch (messageText) {
                 case "/start":
                     startCommandReceived(chatId, update.getMessage().getChat().getFirstName());
                     break;
                 default:
-                    if (macAddressMatch) {
-                        sendBipiumResult(chatId, messageText);
+                    if (messageText.contains("/")) {
+                        String[] deviceValues = messageText.split("/");
+                        String deviceType = deviceValues[0];
+                        String numberValue = deviceValues[1];
+
+                        if (deviceType.equals("пу") || deviceType.equals("успд")) {
+                            if (numberValue.length() == 8 || numberValue.length() == 12 || numberValue.length() == 13 || numberValue.length() == 11
+                                    || numberValue.length() == 6 || numberValue.length() == 5 || macAddressMatch || numberMatch) {
+                                sendBipiumResult(chatId, deviceType, numberValue);
+                            } else {
+                                sendMessage(chatId, "Команда не поддерживается");
+                            }
+                        } else if (deviceValues.length == 0 || numberValue.length() == 0) {
+                            sendMessage(chatId, "Команда не поддерживается");
+                        }
+
                     } else {
                         sendMessage(chatId, "Команда не поддерживается");
                     }
@@ -53,13 +69,10 @@ public class TelegramBot extends TelegramLongPollingBot {
         }
     }
 
-    private void sendBipiumResult(long chatId, String messageText) {
+    private void sendBipiumResult(long chatId, String deviceType, String deviceValue) {
         Map<String, String> botAnswerMap = null;
         StringBuilder messageAnswer = new StringBuilder();
 
-        String[] result = messageText.split("/");
-        String deviceType = result[0];
-        String deviceValue = result[1];
 
         BipiumApiServicesBuilder bipiumBuilder = new BipiumApiServicesBuilder(deviceType);
         AbstractDevice deviceInformation = bipiumBuilder.searchDevice(deviceValue);
@@ -74,7 +87,6 @@ public class TelegramBot extends TelegramLongPollingBot {
 
                 messageAnswer.append(key).append(" : ").append(value).append("\n").toString();
             }
-
         } else {
             messageAnswer = new StringBuilder("данные не найдены\n");
         }
