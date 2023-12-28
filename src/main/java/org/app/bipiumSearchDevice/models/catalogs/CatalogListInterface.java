@@ -1,4 +1,4 @@
-package org.app.bipium.models.catalogs;
+package org.app.bipiumSearchDevice.models.catalogs;
 
 import java.util.List;
 

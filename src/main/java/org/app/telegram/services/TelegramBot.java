@@ -1,8 +1,8 @@
 package org.app.telegram.services;
 
-import org.app.bipium.config.Credentials;
-import org.app.bipium.models.devices.AbstractDevice;
-import org.app.bipium.services.BipiumApiServicesBuilder;
+import org.app.bipiumSearchDevice.config.Credentials;
+import org.app.bipiumSearchDevice.models.devices.AbstractDevice;
+import org.app.bipiumSearchDevice.services.BipiumApiServicesBuilder;
 import org.springframework.stereotype.Component;
 import org.telegram.telegrambots.bots.TelegramLongPollingBot;
 import org.telegram.telegrambots.meta.api.methods.send.SendMessage;
@@ -12,7 +12,6 @@ import org.telegram.telegrambots.meta.exceptions.TelegramApiException;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
-import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
 @Component

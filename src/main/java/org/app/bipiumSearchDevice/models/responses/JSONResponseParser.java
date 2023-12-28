@@ -1,7 +1,4 @@
-package org.app.bipium.models.responses;
-
-import org.app.bipium.models.catalogs.Catalog;
-import org.app.bipium.models.catalogs.PersonalDeviceCatalogList;
+package org.app.bipiumSearchDevice.models.responses;
 
 import java.io.IOException;
 import java.util.Map;

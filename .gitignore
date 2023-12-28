@@ -36,5 +36,5 @@ build/
 
 ### Mac OS ###
 .DS_Store
-/src/main/java/org/app/bipium/config/Credentials.java
+/src/main/java/org/app/bipiumSearchDevice/config/Credentials.java
 /src/main/java/org/app/telegram/application.properties

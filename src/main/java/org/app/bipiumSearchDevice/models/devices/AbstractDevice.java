@@ -1,4 +1,4 @@
-package org.app.bipium.models.devices;
+package org.app.bipiumSearchDevice.models.devices;
 
 import java.util.*;
 

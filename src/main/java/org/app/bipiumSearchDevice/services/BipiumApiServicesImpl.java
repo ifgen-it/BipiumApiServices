@@ -1,15 +1,15 @@
-package org.app.bipium.services;
+package org.app.bipiumSearchDevice.services;
 
-import org.app.bipium.config.Credentials;
-import org.app.bipium.models.catalogs.BackboneDeviceCatalogList;
-import org.app.bipium.models.catalogs.Catalog;
-import org.app.bipium.models.catalogs.CatalogListInterface;
-import org.app.bipium.models.catalogs.PersonalDeviceCatalogList;
-import org.app.bipium.models.devices.AbstractDevice;
-import org.app.bipium.models.devices.BackboneDevice;
-import org.app.bipium.models.devices.PersonalDevice;
-import org.app.bipium.models.responses.BipiumApiResponse;
-import org.app.bipium.models.responses.ResponseSendable;
+import org.app.bipiumSearchDevice.config.Credentials;
+import org.app.bipiumSearchDevice.models.catalogs.BackboneDeviceCatalogList;
+import org.app.bipiumSearchDevice.models.catalogs.Catalog;
+import org.app.bipiumSearchDevice.models.catalogs.CatalogListInterface;
+import org.app.bipiumSearchDevice.models.catalogs.PersonalDeviceCatalogList;
+import org.app.bipiumSearchDevice.models.devices.AbstractDevice;
+import org.app.bipiumSearchDevice.models.devices.BackboneDevice;
+import org.app.bipiumSearchDevice.models.devices.PersonalDevice;
+import org.app.bipiumSearchDevice.models.responses.BipiumApiResponse;
+import org.app.bipiumSearchDevice.models.responses.ResponseSendable;
 
 import java.io.Serializable;
 import java.util.*;

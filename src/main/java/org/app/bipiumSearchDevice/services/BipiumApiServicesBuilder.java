@@ -1,6 +1,6 @@
-package org.app.bipium.services;
+package org.app.bipiumSearchDevice.services;
 
-import org.app.bipium.models.devices.AbstractDevice;
+import org.app.bipiumSearchDevice.models.devices.AbstractDevice;
 
 public class BipiumApiServicesBuilder {
     private BipiumApiServices bipiumApiServices;

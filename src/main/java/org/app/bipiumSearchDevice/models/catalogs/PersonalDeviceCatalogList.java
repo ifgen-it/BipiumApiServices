@@ -1,6 +1,4 @@
-package org.app.bipium.models.catalogs;
-
-import org.app.bipium.models.devices.AbstractDevice;
+package org.app.bipiumSearchDevice.models.catalogs;
 
 import java.util.*;
 

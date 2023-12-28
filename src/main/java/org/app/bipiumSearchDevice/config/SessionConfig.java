@@ -1,4 +1,4 @@
-package org.app.bipium.config;
+package org.app.bipiumSearchDevice.config;
 
 import org.apache.http.Header;
 import org.apache.http.HeaderElement;

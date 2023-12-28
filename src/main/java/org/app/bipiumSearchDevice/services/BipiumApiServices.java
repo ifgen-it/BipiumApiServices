@@ -1,8 +1,6 @@
-package org.app.bipium.services;
+package org.app.bipiumSearchDevice.services;
 
-import org.app.bipium.models.devices.AbstractDevice;
-
-import java.util.Map;
+import org.app.bipiumSearchDevice.models.devices.AbstractDevice;
 
 public interface BipiumApiServices {
     AbstractDevice searchDeviceByNumber(String number);

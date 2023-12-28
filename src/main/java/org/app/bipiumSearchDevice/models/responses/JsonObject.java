@@ -1,4 +1,4 @@
-package org.app.bipium.models.responses;
+package org.app.bipiumSearchDevice.models.responses;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
 

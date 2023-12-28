@@ -1,6 +1,4 @@
-package org.app.bipium.models.responses;
-
-import org.app.bipium.models.catalogs.Catalog;
+package org.app.bipiumSearchDevice.models.responses;
 
 import java.util.Map;
 

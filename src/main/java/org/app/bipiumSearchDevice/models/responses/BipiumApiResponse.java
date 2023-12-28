@@ -1,26 +1,16 @@
-package org.app.bipium.models.responses;
+package org.app.bipiumSearchDevice.models.responses;
 
-import org.apache.http.Header;
-import org.apache.http.HeaderElement;
 import org.apache.http.HttpResponse;
 import org.apache.http.client.config.CookieSpecs;
 import org.apache.http.client.config.RequestConfig;
 import org.apache.http.client.methods.HttpGet;
-import org.apache.http.client.methods.HttpPost;
-import org.apache.http.entity.StringEntity;
 import org.apache.http.impl.client.CloseableHttpClient;
-import org.apache.http.impl.client.HttpClientBuilder;
 import org.apache.http.impl.client.HttpClients;
 import org.apache.http.util.EntityUtils;
-import org.app.bipium.config.SessionConfig;
-import org.app.bipium.models.catalogs.Catalog;
-import org.app.bipium.models.catalogs.PersonalDeviceCatalogList;
+import org.app.bipiumSearchDevice.config.SessionConfig;
 
 import java.io.IOException;
 import java.nio.charset.StandardCharsets;
-import java.util.Arrays;
-import java.util.HashMap;
-import java.util.List;
 import java.util.Map;
 
 
