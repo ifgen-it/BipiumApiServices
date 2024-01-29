@@ -9,7 +9,9 @@ import org.telegram.telegrambots.meta.TelegramBotsApi;
 import org.telegram.telegrambots.meta.exceptions.TelegramApiException;
 import org.telegram.telegrambots.updatesreceivers.DefaultBotSession;
 
-@Component
+@Component // этот класс лежит в пакедже config. В таком пакедже обычно лежат классы
+    // с аннотацией @Config, где создаются бины
+    // А здесь у тебя просто бин - Компонент. Предлагаю название пакеджа поменять
 public class BotInitializer {
     @Autowired
     TelegramBot bot;
@@ -20,7 +22,7 @@ public class BotInitializer {
 
         try {
             telegramBotsApi.registerBot(bot);
-        } catch (TelegramApiException exception) {
+        } catch (TelegramApiException exception) { // надо добавить обработку исключения
 
         }
     }
