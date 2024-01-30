@@ -1,10 +1,15 @@
 package org.app.bipiumSearchDevice.models.catalogs;
 
+import org.app.bipiumSearchDevice.models.devices.AbstractDevice;
+import org.app.bipiumSearchDevice.models.devices.PersonalDevice;
+
 import java.util.*;
 
 public class PersonalDeviceCatalogList implements CatalogListInterface {
+
     public List<Catalog> initial() {
         Map<String, String> fieldsValues1 = new LinkedHashMap<>();
+        // в идеале эти константы вынести в csv-файл или в БД (в справочник)
         fieldsValues1.put("6", "филиал");
         fieldsValues1.put("10", "ТП");
         fieldsValues1.put("11", "Линия/Фидер");
@@ -119,5 +124,10 @@ public class PersonalDeviceCatalogList implements CatalogListInterface {
         catalogs.add(catalog6);
 
         return catalogs;
+    }
+
+    @Override
+    public AbstractDevice createDevice() {
+        return new PersonalDevice();
     }
 }

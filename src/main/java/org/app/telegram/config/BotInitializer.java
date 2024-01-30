@@ -1,5 +1,6 @@
 package org.app.telegram.config;
 
+import lombok.RequiredArgsConstructor;
 import org.app.telegram.services.TelegramBot;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.event.ContextRefreshedEvent;
@@ -12,9 +13,11 @@ import org.telegram.telegrambots.updatesreceivers.DefaultBotSession;
 @Component // этот класс лежит в пакедже config. В таком пакедже обычно лежат классы
     // с аннотацией @Config, где создаются бины
     // А здесь у тебя просто бин - Компонент. Предлагаю название пакеджа поменять
+@RequiredArgsConstructor // лучше так - инжект через конструктор, чем инжект через поля
 public class BotInitializer {
-    @Autowired
-    TelegramBot bot;
+
+    //@Autowired
+    private final TelegramBot bot;
 
     @EventListener({ContextRefreshedEvent.class})
     public void init() throws TelegramApiException {

@@ -1,6 +1,7 @@
 package org.app.bipiumSearchDevice.models.responses;
 
 import org.apache.http.HttpResponse;
+import org.apache.http.HttpStatus;
 import org.apache.http.client.config.CookieSpecs;
 import org.apache.http.client.config.RequestConfig;
 import org.apache.http.client.methods.HttpGet;
@@ -34,8 +35,12 @@ public class BipiumApiResponse implements ResponseSendable {
      */
     @Override
     public Map<String, String> getRequest(int catalogID, String searchValue) {
+        // очень большой метод - надо разбить на части
         String requestUrl = domain + "/api/v1/catalogs/" + catalogID + "/records?searchText=" + searchValue;
         HttpGet httpGet = new HttpGet(requestUrl);
+        // попробуй прикрутить фейн-клиент очень удобная штука
+        // пример https://github.com/ifgen-it/shop-front/blob/master/src/main/java/ru/avalon/front/lib/client/IProductClient.java
+
         httpGet.addHeader("Cookie", "connect.sid=" + this.session);
 
         HttpResponse response = null;
@@ -48,7 +53,7 @@ public class BipiumApiResponse implements ResponseSendable {
 
         int responseStatus = response.getStatusLine().getStatusCode();
 
-        if (responseStatus == 200) {
+        if (responseStatus == HttpStatus.SC_OK) { // или спринговый HttpStatus.OK
 
         } else {
             switch (responseStatus) {
@@ -74,6 +79,9 @@ public class BipiumApiResponse implements ResponseSendable {
         }
 
         return JSONResponseParser.parse(responseBody);
+        // если parse вернет null, ты не поймешь в чем дело
+        // то есть смысла возвращать из метода null наверное уже нет? можно крашить прилагу?
+        // пусть эксепшен летит на самый верх - если ты его не можешь обработать так чтобы прилага не упала
 
     }
 

@@ -1,4 +1,6 @@
 package org.app.bipiumSearchDevice.services;
+// надо все именовать в единственном числе - service
+// также device, catalog, model  и тп
 
 import org.app.bipiumSearchDevice.config.Credentials;
 import org.app.bipiumSearchDevice.models.catalogs.BackboneDeviceCatalogList;
@@ -46,15 +48,16 @@ public class BipiumApiServicesImpl implements BipiumApiServices, Serializable {
             }
         }
 
-        AbstractDevice resultDevice = null;
+      /*  AbstractDevice resultDevice = null;
 
         if (catalogListInterface instanceof PersonalDeviceCatalogList) {
             resultDevice = new PersonalDevice();
         } else if (catalogListInterface instanceof BackboneDeviceCatalogList) {
             resultDevice = new BackboneDevice();
-        }
+        }*/
+        AbstractDevice resultDevice = catalogListInterface.createDevice();
 
-        if (resultDevice != null) {
+        if (resultDevice != null) {  // вроде он null не мб
             if (resultCatalogHashMap != null) {
                 resultDevice.setValues(resultCatalogHashMap, requestHashmap);
             } else {
@@ -81,13 +84,14 @@ public class BipiumApiServicesImpl implements BipiumApiServices, Serializable {
             }
         }
 
-        AbstractDevice resultDevice = null;
+     /*   AbstractDevice resultDevice = null;
 
         if (catalogListInterface instanceof PersonalDeviceCatalogList) {
             resultDevice = new PersonalDevice();
         } else if (catalogListInterface instanceof BackboneDeviceCatalogList) {
             resultDevice = new BackboneDevice();
-        }
+        }*/
+        AbstractDevice resultDevice = catalogListInterface.createDevice();
 
         if (resultDevice != null) {
             if (resultCatalogHashMap != null) {

@@ -4,7 +4,8 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 
 import java.util.Map;
 
-public class JsonObject {
+public class JsonObject { // лучше в названии отразить смысл бизнесовый
+    // поставить @Getter
     private String id;
     private String catalogId;
     private String title;

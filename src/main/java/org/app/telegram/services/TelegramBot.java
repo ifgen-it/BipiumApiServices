@@ -1,5 +1,7 @@
 package org.app.telegram.services;
 
+// в пакете  package org.app.bipiumSearchDevice.config не нашел энума Credentials
+import lombok.NonNull;
 import org.app.bipiumSearchDevice.config.Credentials;
 import org.app.bipiumSearchDevice.models.devices.AbstractDevice;
 import org.app.bipiumSearchDevice.services.BipiumApiServicesBuilder;
@@ -16,6 +18,9 @@ import java.util.regex.Pattern;
 
 @Component
 public class TelegramBot extends TelegramLongPollingBot {
+
+    private static final String COMMAND_NOT_SUPPORTED = "Команда не поддерживается";
+
     @Override
     public String getBotToken() {
         return Credentials.BOTKEY;
@@ -28,6 +33,8 @@ public class TelegramBot extends TelegramLongPollingBot {
 
     @Override
     public void onUpdateReceived(Update update) {
+        // если придет null, то будет NPE
+        // надо проверять на null или ставить аннотацию - @NonNull Update update
         if (update.hasMessage() && update.getMessage().hasText()) {
             String messageText = update.getMessage().getText().toLowerCase().strip();
             long chatId = update.getMessage().getChatId();
@@ -53,10 +60,12 @@ public class TelegramBot extends TelegramLongPollingBot {
                                     || numberValue.length() == 6 || numberValue.length() == 5 || macAddressMatch || numberMatch) {
                                 sendBipiumResult(chatId, deviceType, numberValue);
                             } else {
-                                sendMessage(chatId, "Команда не поддерживается");
+                                sendMessage(chatId, COMMAND_NOT_SUPPORTED);
                             }
                         } else if (deviceValues.length == 0 || numberValue.length() == 0) {
                             sendMessage(chatId, "Команда не поддерживается");
+                            // текст (особенно повторяющийся) надо выносить в константы,
+                            // либо в энум, если константы группируемые
                         }
 
                     } else {
@@ -74,11 +83,13 @@ public class TelegramBot extends TelegramLongPollingBot {
 
 
         BipiumApiServicesBuilder bipiumBuilder = new BipiumApiServicesBuilder(deviceType);
-        AbstractDevice deviceInformation = bipiumBuilder.searchDevice(deviceValue);
+        AbstractDevice deviceInformation = bipiumBuilder.searchDevice(deviceValue); // этот метод возвращает null
+        // далее на null проверки нет - технически может быть NPE. Если его технически не может быть, то значит не надо
+        // возвращать null - лучше эксепшен IllegalArgumentException, IllegalStateException и тп или свой кастомный
 
         botAnswerMap = deviceInformation.getValues();
 
-        if (botAnswerMap != null) {
+        if (botAnswerMap != null) { // преобразование мапы в стрингу можно вынести в отдельный метод - для читаемости
             List<String> keys = new ArrayList<String>(botAnswerMap.keySet());
             for(int i = 0; i < keys.size(); i++) {
                 String key = keys.get(i);
@@ -93,7 +104,7 @@ public class TelegramBot extends TelegramLongPollingBot {
     }
 
     private void startCommandReceived(long chatId, String name) {
-        String startAnswer = "Проект ЛенЭнерго, поиск информации об устройстве\n" +
+        String startAnswer = "Проект ЛенЭнерго, поиск информации об устройстве\n" + // вынести в константу
                 "   Для получения информации об устройстве введите номер устройства в формате\n" +
                 "успд-<номер_успд> для успд или пу-<номер_пу> для счётчика\n" +
                 "";
@@ -107,7 +118,7 @@ public class TelegramBot extends TelegramLongPollingBot {
 
         try {
             execute(message);
-        } catch (TelegramApiException exception) {
+        } catch (TelegramApiException exception) { // не обработано исключение - хотя бы залогируй
         }
     }
 }

@@ -19,7 +19,7 @@ public class BipiumApiServicesBuilder {
 
         if (device == null) {
             return null;
-        }
+        } // null возвращать плохо, если надо показать отсутствие значение, то возвращай Optional<AbstractDevice>
         return device;
     }
 }

@@ -17,7 +17,7 @@ public class JSONResponseParser {
             values = myObject.getValues();
 
         } catch (IOException exception) {
-            return null;
+            return null; // плохо + нет логирования
         }
 
         return values;

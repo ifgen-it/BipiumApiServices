@@ -1,5 +1,8 @@
 package org.app.bipiumSearchDevice.models.catalogs;
 
+import org.app.bipiumSearchDevice.models.devices.AbstractDevice;
+import org.app.bipiumSearchDevice.models.devices.BackboneDevice;
+
 import java.util.*;
 
 public class BackboneDeviceCatalogList implements CatalogListInterface {
@@ -52,5 +55,10 @@ public class BackboneDeviceCatalogList implements CatalogListInterface {
         catalogs.add(catalog2);
 
         return catalogs;
+    }
+
+    @Override
+    public AbstractDevice createDevice() {
+        return new BackboneDevice();
     }
 }
